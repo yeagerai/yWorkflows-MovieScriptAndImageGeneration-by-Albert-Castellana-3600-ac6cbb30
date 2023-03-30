@@ -1,0 +1,6 @@
+description: This component accepts a user's input as a text representing a theme
+  or idea for the movie. It receives the text directly from the UserInputModel and
+  simply stores it for the next processing step. Its input comes from the starting
+  node.
+name: UserInput
+parameters: {}
