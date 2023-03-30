@@ -3,5 +3,7 @@ description: This component creates an image representation of the generated mov
   component, sends it to DALL-E API with an appropriate configuration, and receives
   the generated image URL. Then, it stores the 'theme_text', 'script_text', and the
   'image_url' as output.
+input-class: DALLEImageGeneratorInputDict
 name: DALL-EImageGenerator
+output-class: DALLEImageGeneratorOutputDict
 parameters: {}
