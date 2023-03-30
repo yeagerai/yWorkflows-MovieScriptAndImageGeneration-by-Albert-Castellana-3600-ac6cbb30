@@ -3,7 +3,9 @@ description: This component generates a movie script using OpenAI's GPT-4 API ba
   sends it to GPT-4 API with an appropriate model configuration, and receives the
   generated script text. Then, it stores the 'theme_text' and the generated 'script_text'
   as output.
+input-class: GPT4ScriptGeneratorInputDict
 name: GPT4ScriptGenerator
+output-class: GPT4ScriptGeneratorOutputDict
 parameters:
   api_key: null
   model_configuration: default
