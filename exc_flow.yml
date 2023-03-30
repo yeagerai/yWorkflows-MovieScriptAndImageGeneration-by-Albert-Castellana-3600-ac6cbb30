@@ -1,0 +1,30 @@
+yaml
+components:
+  node-0:
+    class: UserInput
+    module-path: components/user_input/user_input.py
+    configuration: !include components/user_input/configuration.yml
+  node-1:
+    class: GPT4ScriptGenerator
+    module-path: components/gpt4_script_generator/gpt4_script_generator.py
+    configuration: !include components/gpt4_script_generator/configuration.yml
+  node-2:
+    class: DALL-EImageGenerator
+    module-path: components/dall_e_image_generator/dall_e_image_generator.py
+    configuration: !include components/dall_e_image_generator/configuration.yml
+
+flow-matrix:
+  [
+    [0, 1, 0],
+    [0, 0, 1],
+    [0, 0, 0],
+  ]
+
+mapper:
+  args.UserInputModel.theme_text: node-0.UserInput.theme_text
+  node-0.UserInput.theme_text: node-1.GPT4ScriptGenerator.theme_text
+  node-1.GPT4ScriptGenerator.script_text: node-2.DALL-EImageGenerator.script_text
+  node-0.UserInput.theme_text: node-2.DALL-EImageGenerator.theme_text
+  node-2.DALL-EImageGenerator.image_url: return.ImageOutputModel.image_url
+  node-2.DALL-EImageGenerator.script_text: return.ImageOutputModel.script_text
+  node-2.DALL-EImageGenerator.theme_text: return.ImageOutputModel.theme_text
