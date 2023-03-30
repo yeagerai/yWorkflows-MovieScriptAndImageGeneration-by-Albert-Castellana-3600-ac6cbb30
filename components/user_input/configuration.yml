@@ -2,5 +2,7 @@ description: This component accepts a user's input as a text representing a them
   or idea for the movie. It receives the text directly from the UserInputModel and
   simply stores it for the next processing step. Its input comes from the starting
   node.
+input-class: UserInputModel
 name: UserInput
+output-class: UserInputOutputDict
 parameters: {}
